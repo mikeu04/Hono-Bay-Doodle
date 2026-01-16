@@ -34,7 +34,7 @@ body {
   /* Ensure no shadow exists by default */
   box-shadow: none; 
   /* Smoothly animate the shadow and the lift effect */
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 /* Optional: slightly lift the card when hovering to emphasize the shadow */
