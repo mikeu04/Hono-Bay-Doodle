@@ -204,6 +204,7 @@ h3 {
   min-height: 600px;
   position: relative;  /* CRITICAL: makes buttons’ absolute positions relative to container  */
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 #sketch-container canvas {
