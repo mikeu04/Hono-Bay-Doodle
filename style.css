@@ -120,6 +120,7 @@ h3 {
 .card img {
   display: block;
   width: 60%;       /* image fills the card width */
+  min-width: 600px;
   max-width: 1400px;
   margin: 30px auto;   /* top/bottom spacing + auto horizontal centering */
   height: auto;      /* keeps aspect ratio */
