@@ -174,14 +174,15 @@ function draw() {
 /********************************************************/
 function setUpSongButton() {
 	songButton = createButton('Music');
-  songButton.size(80, 40);
-  songButton.position(trueWidth / 2 + 80/2 + buttonGap, trueHeight/2 + 50 + 20 - 40);
+	songButton.parent("sketch-container");
+  	songButton.size(80, 40);
+  	songButton.position(trueWidth / 2 + 80/2 + buttonGap, trueHeight/2 + 50 + 20 - 40);
 	
 	songButton.style('color', 'white');
-  songButton.style('background-color', '#882974');
-  songButton.style('border', 'none');
-  songButton.style('border-radius', '70px'); // Make the button circular
-  songButton.style('font-size', '16px');
+  	songButton.style('background-color', '#882974');
+  	songButton.style('border', 'none');
+  	songButton.style('border-radius', '70px'); // Make the button circular
+  	songButton.style('font-size', '16px');
 	songButton.style('box-shadow', '0px 2px 10px 2px rgba(0, 0, 0, 0.2)'); // Add shadow effect
 	songButton.mousePressed(function() {
 		isSongPlaying = !isSongPlaying;
@@ -706,9 +707,10 @@ function updateLight() {
 
 
 function setUpLightButton() {
-	// Create the button
+  // Create the button
   buildingButton = createButton('Lights');
-	// Set the building icon (SVG or image)
+  buildingButton.parent("sketch-container");
+  // Set the building icon (SVG or image)
   //buildingButton.html('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="16" height="6" rx="2" ry="2"></rect><path d="M7 2L17 7V14H7z"></path></svg>');
   buildingButton.position(trueWidth / 2 - 80/2, trueHeight/2 + 50 + 20 - 40);
   buildingButton.size(80, 40);
@@ -876,6 +878,7 @@ function setUpRainButton() {
 	
   // Create the button
   rainButton = createButton('Rainy');
+  rainButton.parent("sketch-container");
   rainButton.position(trueWidth / 2 - 80/2 - buttonGap - 80, trueHeight/2 + 50 + 20 - 40);
   rainButton.size(80, 40);
   rainButton.style('color', 'white');
