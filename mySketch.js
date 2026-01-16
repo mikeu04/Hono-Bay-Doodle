@@ -142,7 +142,7 @@ function updateRelativePositions() {
 	land.oceanTop =  3.36 * height / 4;
 	land.oceanBottom = 3.4 * height / 4;
 
-	ship.x = width + 20;
+	ship.x = Math.min(width, Math.max(0, ship.x));
 	ship.y = land.oceanTop;
 	
 	cloud.y = 5.5/20 * height;
