@@ -105,28 +105,39 @@
   const shadow = document.getElementById('cursor-shadow');
   const cards = document.querySelectorAll('.card');
 
-  // Track mouse globally
-  document.addEventListener('mousemove', (e) => {
-    // This now works over the video because of the .video-shield
+  // 1. Use window level tracking for better coverage
+  window.addEventListener('mousemove', (e) => {
     shadow.style.left = e.clientX + 'px';
     shadow.style.top = e.clientY + 'px';
   });
 
+  // 2. Flashlight logic
   cards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      shadow.classList.add('flashlight');
-    });
-    card.addEventListener('mouseleave', () => {
-      shadow.classList.remove('flashlight');
-    });
+    card.addEventListener('mouseenter', () => shadow.classList.add('flashlight'));
+    card.addEventListener('mouseleave', () => shadow.classList.remove('flashlight'));
+  });
+
+  // 3. THE FIX: Temporarily disable iframe interaction ONLY when moving
+  // This prevents the iframe from "capturing" the cursor focus.
+  const videoIframe = document.querySelector('iframe');
+  
+  document.addEventListener('mousedown', () => {
+    // When you click, allow the iframe to receive the click
+    videoIframe.style.pointerEvents = 'auto';
+  });
+
+  document.addEventListener('mouseup', () => {
+    // Shortly after clicking, make it transparent to mouse moves again
+    // so the shadow keeps following
+    setTimeout(() => {
+      videoIframe.style.pointerEvents = 'none';
+      // We keep it 'none' so moves are captured by the main page,
+      // but 'auto' is only needed for the instant you click play/pause.
+    }, 500);
   });
   
-  // OPTIONAL: If you want to play the video, clicking the shield 
-  // can disable it so you can interact with YouTube.
-  const shield = document.querySelector('.video-shield');
-  shield.addEventListener('click', () => {
-    shield.style.display = 'none'; // Hides shield so you can click play
-  });
+  // Initialize
+  videoIframe.style.pointerEvents = 'none';
 </script>
 </body>
 </html>
