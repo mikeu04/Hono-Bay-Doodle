@@ -26,12 +26,20 @@ body {
 
 /* Cards (Dropdown Shadow Containers) */
 .card {
-  background: #000000; /* Set background to black */
+  background: #000000;
   padding: 28px;
   margin: 48px 0;
-  border-radius: 20px;
-  transition: box-shadow 0.2s ease;
-  color: #ffffff; /* Sets general text color inside cards to white */
+  border-radius: 16px;
+  color: #ffffff;
+  /* Ensure no shadow exists by default */
+  box-shadow: none; 
+  /* Smoothly animate the shadow and the lift effect */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Optional: slightly lift the card when hovering to emphasize the shadow */
+.card:hover {
+  transform: translateY(-5px);
 }
 
 /* Targets paragraph and list text inside the black cards */
