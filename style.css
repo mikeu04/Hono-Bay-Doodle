@@ -75,9 +75,8 @@ h3 {
 }
 
 .hero.subheader h2 {
-  color: #00a896;          /* your chosen color */
-  font-size: 3rem;         /* slightly smaller than main header */
-  font-family: 'Orbitron', monospace; /* AI/robot style font */
+  font-size: 3rem;
+  font-family: 'Orbitron', monospace;
   text-transform: uppercase;
   letter-spacing: 2px;
 
