@@ -73,9 +73,6 @@ function setup() {
 		windowStyle.percentLightOns = 0.3;
 	}
 	
-	
-	cloud.x = 0;
-	
 	backgroundColor = color("#80CBF7");
 	sunFillColor = color("rgb(247, 233, 121)");
 	sunStrokeColor = color("orange");
