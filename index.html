@@ -101,16 +101,26 @@
   <!-- Interaction -->
 <script>
   const shadow = document.getElementById('cursor-shadow');
+  const cards = document.querySelectorAll('.card');
 
+  // 1. Follow the mouse
   document.addEventListener('mousemove', (e) => {
-    // We use requestAnimationFrame for better performance
-    window.requestAnimationFrame(() => {
-      shadow.style.left = e.clientX + 'px';
-      shadow.style.top = e.clientY + 'px';
+    shadow.style.left = e.clientX + 'px';
+    shadow.style.top = e.clientY + 'px';
+  });
+
+  // 2. Change color based on location
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      shadow.classList.add('flashlight');
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      shadow.classList.remove('flashlight');
     });
   });
 
-  // Keep your Fullscreen logic
+  // Fullscreen logic
   document.getElementById("fullscreenBtn").onclick = () => {
     const el = document.getElementById("sketch-container");
     if (el.requestFullscreen) el.requestFullscreen();
