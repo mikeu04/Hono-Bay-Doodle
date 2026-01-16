@@ -136,7 +136,6 @@ function setup() {
 }
 
 function draw() {
-	windowResized();
 	background(backgroundColor);
 	
 	//draw the canvas
@@ -154,7 +153,7 @@ function draw() {
 	// Update color styles based on the current time
 	isDayNightShift = updateNight(); //update prevNight and currNight and return true if there is a day-night shift
 	updateSceneColors(currentTime.getHours());
-  updateButtonStyles(currentTime.getHours());
+  	updateButtonStyles(currentTime.getHours());
 	updateLight();
 	//print(windowStyle.percentLightOns);
 	
@@ -168,18 +167,21 @@ function draw() {
 }
 
 
-function windowResized() {
-  	if (!isFullscreen) {
-	    const container = document.getElementById("sketch-container");
-	    trueWidth = container.offsetWidth;
-		trueHeight = container.offsetHeight;
-	    resizeCanvas(trueWidth, trueHeight);
-  	} else {
-		trueWidth = windowWidth;
-		trueHeight = windowHeight;
-		resizeCanvas(trueWidth, trueHeight);
-  	}
+function toggleFullscreen() {
+  isFullscreen = !isFullscreen;
+	
+  if (isFullscreen) {
+    trueWidth = windowWidth;
+    trueHeight = windowHeight;
+  } else {
+    const container = document.getElementById("sketch-container");
+    trueWidth = container.offsetWidth;
+    trueHeight = container.offsetHeight;
+  }
+
+  resizeCanvas(trueWidth, trueHeight);
 }
+
 
 
 /********************************************************/
