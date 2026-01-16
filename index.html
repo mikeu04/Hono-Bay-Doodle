@@ -49,6 +49,11 @@
       </ul>
     </section>
 
+    <!-- Subheader -->
+    <section class="hero subheader">
+      <h2>1000+ lines of JS in 1 month</h2>
+    </section>
+
     <!-- Video -->
     <section class="video-section card">
       <div class="video-container">
@@ -60,9 +65,9 @@
         <div class="video-shield"></div> </div>
     </section>
 
-    <!-- Process -->
+    <!-- Process Overview -->
     <section class="process card">
-      <h2>🛠 Design & Development</h2>
+      <h2>🛠 Design & Development Overview</h2>
 
       <h3>Ideation</h3>
       <p>
@@ -93,6 +98,63 @@
       </div>
 
       <div id="sketch-container" class="card sketch-card"></div>
+    </section>
+
+    <!-- Ideation -->
+    <section class="ideation card">
+      <h2> ❓ Ideation: Why build this doodle? </h2>
+      <p>
+        It all started with a simple moving cloud in p5.js on OpenProcessing, 
+          sparked by memories of a December trip to Waikiki Beach, 
+          where the weather flips moods almost hourly. 
+          During one project, I experimented with an interactive time-and-weather system, 
+          letting users experience the island’s day-to-night transitions and its rainiest moments.
+
+        For this project, I took it up a notch. 
+          I wanted users to truly feel the energy and calm of Honolulu in one immersive experience. 
+          The result, “Hono Bay Doodle”, is a playful web doodle with music capturing the island’s liveliest season, 
+          letting users interact with colors, time, and weather—and stumble upon delightful, unexpected surprises along the way.
+      </p>
+    </section>
+
+     <!-- Building Process -->
+    <section class="prototype card">
+      <h2> 🛠 Building Process </h2>
+      <h3>Stage 1: Sky, Landscape, Buildings</h3>
+      <p>
+        First, I added a cluster of buildings at the lower left to reflect Honolulu’s mix of urban and natural landscapes. 
+          The tall buildings along the bay, offering ocean views, are a defining feature of Waikiki. 
+          The windows with lights on are randomly generated based on the time of day—more lights appear at night than during the day.
+
+        To make the scene more interactive, I added a “Lights” button in the center. 
+          Pressing it reshuffles which windows are lit, 
+          letting users sync the lights with the rhythm of the island-style song “Uma” by J Boog (Aug 2023). 
+          Additionally, clicking on any of the four buildings randomly changes its color, adding another layer of playful interaction.
+      </p>
+
+      <h3>Stage 2: Beach, Ocean, Ship</h3>
+      <p>
+        Next, I added the beach, ocean, and a ship—elements that left the strongest impression during my trip. 
+          Using math functions, I created an ocean with dynamic waves and made the ship ride naturally along them.
+
+        The ship was drawn step by step, starting from a rectangle base, then the upper structure, and finally the funnel. 
+          The trickiest part was determining the coordinates of each moving vertex. 
+          By combining calculations on sketch paper with helper functions and global class variables in the code
+          —and iterating with AI assistance—
+          I was able to accurately compute the (x, y) positions of every vertex based on the ship’s current location.
+      </p>
+
+      <h3>Stage 3: Smoke Bubbles & Rain</h3>
+      <p>
+        This was the most challenging part of the design. 
+          After adding the ship, I wanted users to interact with it in a way that would influence the weather. 
+          To do this, I created smoke bubbles that affect cloud thickness, which in turn changes the intensity of the rain.
+
+        Clicking the ship releases three smoke bubbles from its funnel. 
+          When a bubble hits the cloud, it increases the rain—more bubbles make the cloud darker and the rain heavier. 
+          The current cloud thickness, representing the number of bubbles, is shown at the bottom center. 
+          Users can also click the “Rainy” button to generate a random rain level with a default number of bubbles, even without interacting with the ship.
+      </p>
     </section>
 
   </main>
