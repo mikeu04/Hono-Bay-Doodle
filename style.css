@@ -130,7 +130,7 @@ h3 {
 #sketch-container {
   width: 100%;
   min-height: 600px;
-  justify-content: center;
+  position: relative;  /* CRITICAL: makes buttons’ absolute positions relative to container  */
 }
 
 #sketch-container canvas {
