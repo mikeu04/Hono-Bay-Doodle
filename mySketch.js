@@ -180,14 +180,11 @@ function toggleFullscreen() {
     trueHeight = screen.height;
   } else {
     trueWidth = container.offsetWidth - 15;
-    trueHeight = Math.max(1000, window.innerHeight * 0.8);;
+    trueHeight = Math.max(800, trueWidth * 0.56); // ~16:9
+	container.style.height = `${trueHeight}px`;
   }
 
-  if (myCanvas) {
-    resizeCanvas(trueWidth, trueHeight);
-  }
-  // Force container to match canvas height
-  container.style.height = `${trueHeight}px`;
+  resizeCanvas(trueWidth, trueHeight);
 }
 
 
