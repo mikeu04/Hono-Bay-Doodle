@@ -2,6 +2,8 @@
 //CreativeCommons Attribution NonCommercial ShareAlike
 //by Mike L., April 28, 2024
 
+let myCanvas;
+let isFullScreen = false;
 let trueWidth, trueHeight; // actual canvas width & height
 let backgroundColor;
 
@@ -52,10 +54,10 @@ function preload() {
 
 function setup() {
 	const container = document.getElementById("sketch-container");
-	trueWidth = container.offsetWidth * 0.9;
+	trueWidth = container.offsetWidth - 5;
 	trueHeight = container.offsetHeight;
-	const c = createCanvas(trueWidth, trueHeight);
-	c.parent("sketch-container");	
+	myCanvas = createCanvas(trueWidth, trueHeight);
+	myCanvas.parent("sketch-container");	
 	
 	land = {ocean: "#476FF2", beach: "#FFC000", opacity: 0.7, 
 					 	beachTop: 3.79 * trueHeight / 4, beachBottom: 3.85 * trueHeight / 4, 
@@ -175,7 +177,7 @@ function toggleFullscreen() {
     trueHeight = windowHeight;
   } else {
     const container = document.getElementById("sketch-container");
-    trueWidth = container.offsetWidth;
+    trueWidth = container.offsetWidth - 5;
     trueHeight = container.offsetHeight;
   }
 
