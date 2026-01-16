@@ -24,7 +24,7 @@ body {
   font-size: 1rem;
 }
 
-/ * Hero Ending */
+/* Hero Ending */
 .hero.ending {
   text-align: center;      /* center text horizontally */
   width: 100%;         /* span across the parent conainer's width */
