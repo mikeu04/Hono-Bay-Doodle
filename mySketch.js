@@ -57,8 +57,8 @@ function preload() {
 function setup() {
 	const container = document.getElementById("sketch-container");
 	w = container.clientWidth - canvasMargin * 2;
-	h = Math.max(600, w * 0.56)  - canvasMargin * 2; // NO smaller than 600px
-	container.style.height = `${h}px`; // match sketch-container's height with canvas.height
+	h = Math.max(600, w * 0.56); // NO smaller than 600px
+	container.style.height = `${h + canvasMargin * 2}px`; // match sketch-container's height with canvas.height
 	myCanvas = createCanvas(w, h);
 	myCanvas.parent("sketch-container");	
 	
@@ -220,8 +220,8 @@ function toggleFullscreen() {
     h = screen.height;
   } else {
     w = container.clientWidth  - canvasMargin * 2;
-    h = Math.max(600, w * 0.56)  - canvasMargin * 2; // NO smaller than 600px
-	container.style.height = `${h}px`;
+    h = Math.max(600, w * 0.56); // NO smaller than 600px
+	container.style.height = `${h + canvasMargin * 2}px`;
   }
 
   resizeCanvas(w, h);
