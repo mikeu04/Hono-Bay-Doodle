@@ -68,6 +68,55 @@ h3 {
   margin: 6px 0;
 }
 
+/* Subheader styling */
+.hero.subheader {
+  text-align: center;      /* center text horizontally */
+  margin: 40px 0;          /* spacing above and below */
+}
+
+.hero.subheader h2 {
+  color: #00a896;          /* your chosen color */
+  font-size: 3rem;         /* slightly smaller than main header */
+  font-family: 'Orbitron', monospace; /* AI/robot style font */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  /* Dynamic 3D / glowing effect */
+  text-shadow:
+    2px 2px 0 #007f6a,     /* dark shadow for depth */
+    -2px -2px 0 #00ffd4,
+    4px 4px 10px rgba(0, 168, 150, 0.7),
+    -4px -4px 10px rgba(0, 168, 150, 0.7);
+  
+  animation: glow 2s infinite alternate;
+}
+
+/* Glowing animation */
+@keyframes glow {
+  0% {
+    text-shadow:
+      2px 2px 0 #007f6a,
+      -2px -2px 0 #00ffd4,
+      4px 4px 10px rgba(0, 168, 150, 0.7),
+      -4px -4px 10px rgba(0, 168, 150, 0.7);
+  }
+  50% {
+    text-shadow:
+      3px 3px 0 #007f6a,
+      -3px -3px 0 #00ffd4,
+      6px 6px 20px rgba(0, 168, 150, 0.8),
+      -6px -6px 20px rgba(0, 168, 150, 0.8);
+  }
+  100% {
+    text-shadow:
+      2px 2px 0 #007f6a,
+      -2px -2px 0 #00ffd4,
+      4px 4px 10px rgba(0, 168, 150, 0.7),
+      -4px -4px 10px rgba(0, 168, 150, 0.7);
+  }
+}
+
+
 /* Video */
 .video-section.card {
   position: relative; /* Keep it as a reference */
