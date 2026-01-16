@@ -51,11 +51,13 @@
 
     <!-- Video -->
     <section class="video-section card">
-      <iframe
-        src="https://www.youtube.com/embed/RlagCUIcet0"
-        title="Hono Bay Doodle Demo"
-        allowfullscreen>
-      </iframe>
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/RlagCUIcet0"
+          title="Hono Bay Doodle Demo"
+          allowfullscreen>
+        </iframe>
+        <div class="video-shield"></div> </div>
     </section>
 
     <!-- Process -->
@@ -103,28 +105,28 @@
   const shadow = document.getElementById('cursor-shadow');
   const cards = document.querySelectorAll('.card');
 
-  // Move the circle
+  // Track mouse globally
   document.addEventListener('mousemove', (e) => {
+    // This now works over the video because of the .video-shield
     shadow.style.left = e.clientX + 'px';
     shadow.style.top = e.clientY + 'px';
   });
 
-  // Toggle Flashlight mode
   cards.forEach(card => {
     card.addEventListener('mouseenter', () => {
       shadow.classList.add('flashlight');
     });
-    
     card.addEventListener('mouseleave', () => {
       shadow.classList.remove('flashlight');
     });
   });
-
-  // Fullscreen
-  document.getElementById("fullscreenBtn").onclick = () => {
-    const el = document.getElementById("sketch-container");
-    if (el.requestFullscreen) el.requestFullscreen();
-  };
+  
+  // OPTIONAL: If you want to play the video, clicking the shield 
+  // can disable it so you can interact with YouTube.
+  const shield = document.querySelector('.video-shield');
+  shield.addEventListener('click', () => {
+    shield.style.display = 'none'; // Hides shield so you can click play
+  });
 </script>
 </body>
 </html>
