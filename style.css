@@ -113,3 +113,17 @@ h3 {
   width: 100%;
   min-height: 600px;
 }
+
+#cursor-shadow {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.15); /* Light black with transparency */
+  border-radius: 50%;     /* Makes it a circle */
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;   /* Allows clicking "through" the circle */
+  z-index: 9999;          /* Ensures it is on top of everything */
+  transform: translate(-50%, -50%); /* Centers the circle on the cursor */
+  transition: transform 0.05s linear; /* Optional: makes movement silky smooth */
+}
