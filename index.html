@@ -128,12 +128,21 @@
         shadow.classList.remove('hidden');
       });
     
-      // Fullscreen logic
+      // Fullscreen logic 
+      // When "View Full Screen" button is clicked, request fullScreenChange
       document.getElementById("fullscreenBtn").onclick = () => {
-        const el = document.getElementById("sketch-container");
-        if (el.requestFullscreen) el.requestFullscreen();
-        toggleFullscreen(); // Call the function from mySketch.js
+        if (!document.fullscreenElement) {
+            const container = document.getElementById("sketch-container");
+            container.requestFullscreen();  // enter fullscreen
+        } else {
+            document.exitFullscreen();      // exit fullscreen
+        }
       };
+        
+      document.addEventListener('fullscreenchange', () => {
+        toggleFullscreen(); // Call the function from mySketch.js
+      });
+
     </script>
 </body>
 </html>
