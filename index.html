@@ -99,21 +99,34 @@
 
   <!-- Interaction -->
   <script>
-    // Dynamic shadow based on mouse
-    document.addEventListener("mousemove", (e) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 20;
-      const y = (e.clientY / window.innerHeight - 0.5) * 20;
+  const cards = document.querySelectorAll(".card");
 
-      document.querySelectorAll(".card").forEach(card => {
-        card.style.boxShadow = `${-x}px ${-y}px 50px rgba(255,255,255,0.4)`;
-      });
+  cards.forEach(card => {
+    // 1. Calculate and show shadow ONLY on hover
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      
+      // Calculate mouse position relative to the center of the card
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      
+      const x = (e.clientX - centerX) / 10;
+      const y = (e.clientY - centerY) / 10;
+
+      // Apply the shadow (using black for visibility on yellow)
+      card.style.boxShadow = `${-x}px ${-y}px 40px rgba(0,0,0,0.6)`;
     });
 
-    // Fullscreen
-    document.getElementById("fullscreenBtn").onclick = () => {
-      const el = document.getElementById("sketch-container");
-      if (el.requestFullscreen) el.requestFullscreen();
-    };
-  </script>
+    // 2. Remove shadow when mouse leaves the card
+    card.addEventListener("mouseleave", () => {
+      card.style.boxShadow = "none";
+    });
+  });
+
+  document.getElementById("fullscreenBtn").onclick = () => {
+    const el = document.getElementById("sketch-container");
+    if (el.requestFullscreen) el.requestFullscreen();
+  };
+</script>
 </body>
 </html>
