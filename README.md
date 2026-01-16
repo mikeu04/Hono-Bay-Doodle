@@ -1,4 +1,4 @@
-# 🌴 Hono Bay Doodle
+# 🌴 [Hono Bay Doodle](https://mikeu04.github.io/Hono-Bay-Doodle/)
 
 **Hono Bay Doodle** is an interactive p5.js web doodle inspired by Google Doodle and a winter trip to Waikiki, Honolulu. Set in an island city bay, the project blends playful visuals, music, and user-driven interactions to create a relaxing yet dynamic computer-generated art experience.
 
