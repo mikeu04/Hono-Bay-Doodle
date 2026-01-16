@@ -54,9 +54,10 @@ function preload() {
 
 function setup() {
 	const container = document.getElementById("sketch-container");
-	width = container.offsetWidth - 15;
-	height = container.offsetHeight;
-	myCanvas = createCanvas(width, height);
+	w = container.offsetWidth - 15;
+	h = Math.max(600, width * 0.56)); // NO smaller than 600px
+	container.style.height = `${h}px`; // match sketch-container's height with canvas.height
+	myCanvas = createCanvas(w, h);
 	myCanvas.parent("sketch-container");	
 	
 	
@@ -88,10 +89,6 @@ function setup() {
 	currentTextColor = color(255);
 	currentShadowColor = color(64);
 
-	setupRelativePositions();
-}
-
-function setupRelativePositions() {
 	land = {ocean: "#476FF2", beach: "#FFC000", opacity: 0.7, 
 					 	beachTop: 3.79 * height / 4, beachBottom: 3.85 * height / 4, 
 						oceanTop: 3.36 * height / 4, oceanBottom: 3.4 * height / 4,
@@ -140,6 +137,47 @@ function setupRelativePositions() {
 	setUpSongButton();
 }
 
+
+
+function updateRelativePositions() {
+	land.beachTop = 3.79 * height / 4;
+	land.beachBottom = 3.85 * height / 4;
+	land.oceanTop =  3.36 * height / 4;
+	land.oceanBottom = 3.4 * height / 4;
+
+	ship.x = width + 20;
+	ship.y = land.oceanTop;
+	
+	cloud.y = 5.5/20 * height;
+
+	//For Buildings & their windows:
+	BD1.x = 0 + 2 * width/50;
+	BD1.y = height - 20*height/50;
+
+	BD2.x = 0 + 6 * width/50;
+	BD2.y = height - 12*height/50;
+
+	BD3.x = 0 + 8 * width/50;
+	BD3.y = height - 25*height/50;
+
+	BD4.x = 0 + 13 * width/50;
+	BD4.y = height - 15*height/50;
+
+	updateWindowsForAllBuildings();
+
+	// update Add Hours Button
+	button.position(width / 2 - 60, height / 2 - 40);
+
+	// update the Rainy Button
+	rainButton.position(width / 2 - 80/2 - buttonGap - 80, height/2 + 50 + 20 - 40);
+	
+	//update the Light Button
+	buildingButton.position(width / 2 - 80/2, height/2 + 50 + 20 - 40);
+	
+	// update the Song Button
+	songButton.position(width / 2 + 80/2 + buttonGap, height/2 + 50 + 20 - 40);
+}
+
 function draw() {
 	background(backgroundColor);
 	
@@ -179,16 +217,16 @@ function toggleFullscreen() {
   isFullscreen = !!document.fullscreenElement;
 
   if (isFullscreen) {
-    width = screen.width;
-    height = screen.height;
+    w = screen.width;
+    h = screen.height;
   } else {
-    width = container.offsetWidth - 15;
-    height = Math.min(600, Math.max(800, width * 0.56)); // ~16:9
-	container.style.height = `${height}px`;
+    w = container.offsetWidth - 15;
+    h = Math.min(600, Math.max(800, width * 0.56)); // ~16:9
+	container.style.height = `${h}px`;
   }
 
-  resizeCanvas(width, height);
-  setupRelativePositions();
+  resizeCanvas(w, h);
+  updateRelativePositions();
 }
 
 
