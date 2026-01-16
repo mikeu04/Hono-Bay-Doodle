@@ -103,13 +103,13 @@
   const shadow = document.getElementById('cursor-shadow');
   const cards = document.querySelectorAll('.card');
 
-  // 1. Follow the mouse
+  // Move the circle
   document.addEventListener('mousemove', (e) => {
     shadow.style.left = e.clientX + 'px';
     shadow.style.top = e.clientY + 'px';
   });
 
-  // 2. Change color based on location
+  // Toggle Flashlight mode
   cards.forEach(card => {
     card.addEventListener('mouseenter', () => {
       shadow.classList.add('flashlight');
@@ -120,7 +120,7 @@
     });
   });
 
-  // Fullscreen logic
+  // Fullscreen
   document.getElementById("fullscreenBtn").onclick = () => {
     const el = document.getElementById("sketch-container");
     if (el.requestFullscreen) el.requestFullscreen();
