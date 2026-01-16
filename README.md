@@ -4,7 +4,7 @@
 
 Rather than emphasizing static aesthetics, this doodle centers on **interactivity and unpredictability**—inviting users to shape the scene through clicks, buttons, keyboard input, and randomized events.
 
----
+
 
 ## ✨ Features
 
@@ -34,7 +34,7 @@ Rather than emphasizing static aesthetics, this doodle centers on **interactivit
 * **Randomness & Surprise**
   Many visual elements—colors, lighting, weather intensity—are intentionally unpredictable, making every interaction feel unique.
 
----
+
 
 ## 🎨 Artistic & Design Intent
 
@@ -46,22 +46,10 @@ The project emphasizes:
 * Small actions leading to noticeable environmental changes
 * A balance between calm ambience and playful surprise
 
----
-
-## 🎥 Showcase
-
-* **Live Sketch (OpenProcessing):**
-  [https://openprocessing.org/sketch/2232890](https://openprocessing.org/sketch/2232890)
-
-* **Feature Video (YouTube):**
-  [https://www.youtube.com/watch?v=RlagCUIcet0](https://www.youtube.com/watch?v=RlagCUIcet0)
-
----
 
 ## 👤 Finished Time
 April 29, 2024
 
----
 
 ## 📚 Credits & Sources
 
@@ -71,6 +59,6 @@ April 29, 2024
 
 Any third-party references, tutorials, or reused logic are cited directly in the source code via comments.
 
----
+
 
 🌺 *Step into Hono Bay, click around, and let the island respond.*
