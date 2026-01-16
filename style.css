@@ -62,18 +62,20 @@ body {
   color: #ffffff;
 }
 
-/* Accent colors */
+/* Sub Titles */
 h2 {
   color: #00a2ff;
+  font-size: 24px;
 }
 
 h3 {
   color: #53ffec;
+  font-size: 20px;
 }
 
 /* Paragraphs */
 p {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 /* Intro list */
