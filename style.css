@@ -85,8 +85,8 @@ h3 {
   text-shadow:
     2px 2px 0 #007f6a,     /* dark shadow for depth */
     -2px -2px 0 #00ffd4,
-    4px 4px 10px rgba(0, 168, 150, 0.5),
-    -4px -4px 10px rgba(0, 168, 150, 0.5);
+    4px 4px 10px rgba(0, 168, 150, 0.7),
+    -4px -4px 10px rgba(0, 168, 150, 0.7);
   
   animation: glow 2s infinite alternate;
 }
@@ -97,22 +97,22 @@ h3 {
     text-shadow:
       2px 2px 0 #007f6a,
       -2px -2px 0 #00ffd4,
-      4px 4px 10px rgba(0, 168, 150, 0.5),
-      -4px -4px 10px rgba(0, 168, 150, 0.5);
+      4px 4px 10px rgba(0, 168, 150, 0.7),
+      -4px -4px 10px rgba(0, 168, 150, 0.7);
   }
   50% {
     text-shadow:
       3px 3px 0 #007f6a,
       -3px -3px 0 #00ffd4,
-      6px 6px 20px rgba(0, 168, 150, 0.7),
-      -6px -6px 20px rgba(0, 168, 150, 0.7);
+      6px 6px 20px rgba(0, 168, 150, 0.8),
+      -6px -6px 20px rgba(0, 168, 150, 0.8);
   }
   100% {
     text-shadow:
       2px 2px 0 #007f6a,
       -2px -2px 0 #00ffd4,
-      4px 4px 10px rgba(0, 168, 150, 0.5),
-      -4px -4px 10px rgba(0, 168, 150, 0.5);
+      4px 4px 10px rgba(0, 168, 150, 0.7),
+      -4px -4px 10px rgba(0, 168, 150, 0.7);
   }
 }
 
