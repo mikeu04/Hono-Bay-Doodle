@@ -2,8 +2,7 @@
 //CreativeCommons Attribution NonCommercial ShareAlike
 //by Mike L., April 28, 2024
 
-
-
+let trueWidth, trueHeight; // actual canvas width & height
 let backgroundColor;
 
 let currentTime = new Date();
@@ -52,16 +51,19 @@ function preload() {
 
 
 function setup() {
-	const c = createCanvas(windowWidth, windowHeight);
+	const container = document.getElementById("sketch-container");
+	trueWidth = container.offsetWidth;
+	trueHeight = container.offsetHeight;
+	const c = createCanvas(trueWidth, trueHeight);
 	c.parent("sketch-container");	
 	
 	land = {ocean: "#476FF2", beach: "#FFC000", opacity: 0.7, 
-					 	beachTop: 3.79 * windowHeight / 4, beachBottom: 3.85 * windowHeight / 4, 
-						oceanTop: 3.36 * windowHeight / 4, oceanBottom: 3.4 * windowHeight / 4,
+					 	beachTop: 3.79 * trueHeight / 4, beachBottom: 3.85 * trueHeight / 4, 
+						oceanTop: 3.36 * trueHeight / 4, oceanBottom: 3.4 * trueHeight / 4,
 				 		waveSpeed: 0.02}; //waveSpeed between 0.01 to 0.1
 	
 	
-	ship = {x: windowWidth + 20, y: land.oceanTop, 
+	ship = {x: trueWidth + 20, y: land.oceanTop, 
 					//color: "#A42D00"
 					color: generateRandomColor(), keelColor: "#2D2D2D", speed: 0.3, buildingColor: "#EDE9C6", 
 					size: 150, bottomHeight: 150 / 5, windowSize: 150 / 25, buildingHeight: 25, funnelHeight: 15, funnelLength: 15,
@@ -73,7 +75,7 @@ function setup() {
 					 locations: {x: [], y: []}, numbers: 3, speedX: [-1.5, 2], speedY: [1, 2]}; //speedX = [min speedX, max speedX]
 	
 	
-	cloud = {color: color("#FFFFFF"), x: -300, y: 5.5/20 * windowHeight, speed: 0.7, size: 100, numSmoke: 0};
+	cloud = {color: color("#FFFFFF"), x: -300, y: 5.5/20 * trueHeight, speed: 0.7, size: 100, numSmoke: 0};
 	
 	
 	
@@ -99,22 +101,22 @@ function setup() {
 	moonStrokeColor = backgroundColor;
 
 	//For Buildings & their windows:
-	BD1 = {x: 0 + 2 * windowWidth/50, y: windowHeight - 20*windowHeight/50, width: 100, 
+	BD1 = {x: 0 + 2 * trueWidth/50, y: trueHeight - 20*trueHeight/50, width: 100, 
 				 color: buildingColors[int(random(buildingColors.length))], 
 				 windows: [], lightOns: []};
-	BD2 = {x: 0 + 6 * windowWidth/50, y: windowHeight - 12*windowHeight/50, width: 120, 
+	BD2 = {x: 0 + 6 * trueWidth/50, y: trueHeight - 12*trueHeight/50, width: 120, 
 				 color: buildingColors[int(random(buildingColors.length))], 
 				 windows: [], lightOns: []};
-	BD3 = {x: 0 + 8 * windowWidth/50, y: windowHeight - 25*windowHeight/50, width: 80, 
+	BD3 = {x: 0 + 8 * trueWidth/50, y: trueHeight - 25*trueHeight/50, width: 80, 
 				 color: buildingColors[int(random(buildingColors.length))], 
 				 windows: [], lightOns: []};
-	BD4 = {x: 0 + 13 * windowWidth/50, y: windowHeight - 15*windowHeight/50, width: 85, 
+	BD4 = {x: 0 + 13 * trueWidth/50, y: trueHeight - 15*trueHeight/50, width: 85, 
 				 color: buildingColors[int(random(buildingColors.length))], 
 				 windows: [], lightOns: []};
 	updateWindowsForAllBuildings();
 	
 	textSize(24);
-  textAlign(CENTER, CENTER);
+  	textAlign(CENTER, CENTER);
 	
 	
 	// this creates the Add Hours Button
@@ -173,7 +175,7 @@ function draw() {
 function setUpSongButton() {
 	songButton = createButton('Music');
   songButton.size(80, 40);
-  songButton.position(windowWidth / 2 + 80/2 + buttonGap, windowHeight/2 + 50 + 20 - 40);
+  songButton.position(trueWidth / 2 + 80/2 + buttonGap, trueHeight/2 + 50 + 20 - 40);
 	
 	songButton.style('color', 'white');
   songButton.style('background-color', '#882974');
@@ -260,7 +262,7 @@ function drawMoon() {
 function drawCloud() {
 	cloud.color = lerpColor(cloud.color, getCloudColor(), 0.05);
 	cloud.x += cloud.speed;
-	if(cloud.x> windowWidth + 100) {
+	if(cloud.x> trueWidth + 100) {
 		cloud.x = -300;
 	}
 	
@@ -306,14 +308,14 @@ function drawLand() {
 	//Draw the ocean with waves
 	fill(oceanColor);
 	noStroke();
-	//rect(0, windowHeight - land.oceanHeight, windowWidth, land.oceanHeight);
+	//rect(0, trueHeight - land.oceanHeight, trueWidth, land.oceanHeight);
 	beginShape();
-  for (let x = 0; x <= windowWidth; x += 1) {
+  for (let x = 0; x <= trueWidth; x += 1) {
     let y = map(sin(x * 0.01 + frameCount * land.waveSpeed), -1, 1, land.oceanBottom, land.oceanTop);
     vertex(x, y);
   }
-  vertex(windowWidth, windowHeight);
-  vertex(0, windowHeight);
+  vertex(trueWidth, trueHeight);
+  vertex(0, trueHeight);
   endShape(CLOSE);
 	
 	
@@ -325,12 +327,12 @@ function drawLand() {
   fill(beachColor);
   noStroke();
   beginShape();
-  for (let x = 0; x <= windowWidth + 20; x += 20) {
+  for (let x = 0; x <= trueWidth + 20; x += 20) {
     let y = map(sin(x * 0.01), -1, 1, land.beachBottom, land.beachTop);
     vertex(x, y);
   }
-  vertex(windowWidth, windowHeight);
-  vertex(0, windowHeight);
+  vertex(trueWidth, trueHeight);
+  vertex(0, trueHeight);
   endShape(CLOSE);
 }
 
@@ -342,7 +344,7 @@ function drawShip() {
 	ship.x -= ship.speed;
 	ship.y = map(sin(frameCount * land.waveSpeed), -1, 1, land.oceanBottom - 2, land.oceanTop - 1);
 	if(ship.x < -220) {
-		ship.x = windowWidth + 20;
+		ship.x = trueWidth + 20;
 		ship.color = generateRandomColor();
 	}
   
@@ -483,7 +485,7 @@ function updateSmokeLocations() {
 		// remove smoke bubbles that are out of bounds
 		if (smoke.locations.y[i] < 0 - smoke.size || 
 				smoke.locations.x[i] < 0 - smoke.size || 
-				smoke.locations.x[i] > windowWidth + smoke.size || 
+				smoke.locations.x[i] > trueWidth + smoke.size || 
 				isHitCloud(smoke.locations.x[i], smoke.locations.y[i])) {
 			
 			//if the bubble hit the cloud, starts raining
@@ -599,8 +601,8 @@ function drawBuilding(BD) {
 	beginShape();
 	vertex(bottomLeftCorner[0], bottomLeftCorner[1]);
 	vertex(bottomRightCorner[0], bottomRightCorner[1]);
-	vertex(bottomRightCorner[0], windowHeight + 20);
-	vertex(bottomLeftCorner[0], windowHeight + 20);
+	vertex(bottomRightCorner[0], trueHeight + 20);
+	vertex(bottomLeftCorner[0], trueHeight + 20);
 	endShape(CLOSE);
 	
 	
@@ -608,8 +610,8 @@ function drawBuilding(BD) {
 	beginShape();
 	vertex(bottomLeftCorner[0], bottomLeftCorner[1]);
 	vertex(upperLeftCorner[0], upperLeftCorner[1]);
-	vertex(upperLeftCorner[0], windowHeight + 20);
-	vertex(bottomLeftCorner[0], windowHeight + 20);
+	vertex(upperLeftCorner[0], trueHeight + 20);
+	vertex(bottomLeftCorner[0], trueHeight + 20);
 	endShape(CLOSE);
 }
 
@@ -631,7 +633,7 @@ function getEndPoints(x, y, distance, angle) {
 function getWindows(x, y, buildingW) {
 	let windows = [];
 	for (let i = x + 14; i <= x + buildingW - 20; i += 16) {
-		for (let j = y + 20; j <= windowHeight - 20; j += 25) {
+		for (let j = y + 20; j <= trueHeight - 20; j += 25) {
 			windows.push({x: i, y: j});
 		}
 	}
@@ -708,7 +710,7 @@ function setUpLightButton() {
   buildingButton = createButton('Lights');
 	// Set the building icon (SVG or image)
   //buildingButton.html('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="16" height="6" rx="2" ry="2"></rect><path d="M7 2L17 7V14H7z"></path></svg>');
-  buildingButton.position(windowWidth / 2 - 80/2, windowHeight/2 + 50 + 20 - 40);
+  buildingButton.position(trueWidth / 2 - 80/2, trueHeight/2 + 50 + 20 - 40);
   buildingButton.size(80, 40);
   buildingButton.style('color', 'white');
   buildingButton.style('background-color', '#91771F');
@@ -740,7 +742,7 @@ function setUpLightButton() {
 /********************************************************/
 //Detecting the mouse location is in a building
 function isMouseInBuilding(BD) {
-	return mouseY >= BD.y && mouseY <= windowHeight && mouseX >= BD.x - BD.width/3.2 && mouseX <= BD.x + BD.width;
+	return mouseY >= BD.y && mouseY <= trueHeight && mouseX >= BD.x - BD.width/3.2 && mouseX <= BD.x + BD.width;
 }
 
 
@@ -809,7 +811,7 @@ function displayCurrentTime() {
   textFont('Lucida Console', 80);
 	textStyle(NORMAL);
 	//textFont('Courier New', 80);
-  text(formattedTime, windowWidth / 2, windowHeight / 2 - 100);
+  text(formattedTime, trueWidth / 2, trueHeight / 2 - 100);
 }
 
 
@@ -823,7 +825,7 @@ function displayCurrentTime() {
 function setUpAddHoursButton() {
   // Create the button
   button = createButton('+ 2 hours');
-  button.position(windowWidth / 2 - 60, windowHeight / 2 - 40);
+  button.position(trueWidth / 2 - 60, trueHeight / 2 - 40);
   button.size(120, 50);
   button.mousePressed(addHours);
   button.style('color', 'black');
@@ -874,7 +876,7 @@ function setUpRainButton() {
 	
   // Create the button
   rainButton = createButton('Rainy');
-  rainButton.position(windowWidth / 2 - 80/2 - buttonGap - 80, windowHeight/2 + 50 + 20 - 40);
+  rainButton.position(trueWidth / 2 - 80/2 - buttonGap - 80, trueHeight/2 + 50 + 20 - 40);
   rainButton.size(80, 40);
   rainButton.style('color', 'white');
   rainButton.style('background-color', '#003D5B');
@@ -955,10 +957,10 @@ function getRain(rainStrength) {
   strokeWeight(1.5);
   
   // Draw rain drops (thin line segments falling at a 120-degree angle)
-  for (let i = 0; i < windowWidth; i += addi) {
+  for (let i = 0; i < trueWidth; i += addi) {
     // Calculate starting point for raindrop
-    let startX = random(windowWidth);
-    let startY = random(windowHeight); // Start raindrop above the canvas
+    let startX = random(trueWidth);
+    let startY = random(trueHeight); // Start raindrop above the canvas
     
     // Calculate end point for raindrop (falling in a 120-degree angle)
     let endX = startX + dropLength * cos(PI * dropAngle); // Adjust length of raindrop
@@ -1011,11 +1013,11 @@ function displayRainEndTime() {
 	
 	// Display the approximate time the rain will end
   textFont('Lucida Console', 24);
-  text(formattedTime, windowWidth / 2, windowHeight / 2 + 160);
+  text(formattedTime, trueWidth / 2, trueHeight / 2 + 160);
 	
 	// Display the number of smoke bubbles that hit the cloud
 	textFont('Lucida Console', 18);
-  text(formattedSmoke, windowWidth / 2, windowHeight / 2 + 200);
+  text(formattedSmoke, trueWidth / 2, trueHeight / 2 + 200);
 }
 
 
@@ -1031,7 +1033,7 @@ function displaySong() {
 	let formattedSong = `♩ ♪ "Uma" by J Boog, 11 Aug 2023 ♫ ♬`;
   textFont('Lucida Console', 16);
 	textStyle(ITALIC);
-  text(formattedSong, windowWidth / 2, 9/10 * windowHeight);
+  text(formattedSong, trueWidth / 2, 9/10 * trueHeight);
 }
 
 
