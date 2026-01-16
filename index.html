@@ -132,6 +132,7 @@
       document.getElementById("fullscreenBtn").onclick = () => {
         const el = document.getElementById("sketch-container");
         if (el.requestFullscreen) el.requestFullscreen();
+        toggleFullscreen(); // Call the function from mySketch.js
       };
     </script>
 </body>
