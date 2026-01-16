@@ -115,14 +115,10 @@ h3 {
 }
 
 #cursor-shadow {
-  width: 120px;
-  height: 120px;
-  /* Radial gradient creates the "bulb" look */
-  background: radial-gradient(
-    circle, 
-    rgba(255, 255, 255, 0.3) 0%, 
-    rgba(255, 255, 255, 0) 70%
-  );
+  width: 180px;
+  height: 180px;
+  /* Using a light gray allows the 'difference' mode to work both ways */
+  background-color: rgba(200, 200, 200, 0.4); 
   position: fixed;
   top: 0;
   left: 0;
@@ -130,6 +126,10 @@ h3 {
   z-index: 9999;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  /* "overlay" or "screen" makes it look like real light hitting the colors below */
-  mix-blend-mode: screen; 
+  
+  /* THIS IS THE KEY: it inverts based on the background color */
+  mix-blend-mode: difference;
+  
+  /* Smooth movement */
+  transition: transform 0.1s ease-out;
 }
