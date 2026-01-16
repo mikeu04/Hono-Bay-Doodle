@@ -100,6 +100,13 @@
 
   <!-- Interaction -->
   <script>
+  const shadow = document.getElementById('cursor-shadow');
+  document.addEventListener('mousemove', (e) => {
+    // Moves the circle to the exact mouse coordinates
+    shadow.style.left = e.clientX + 'px';
+    shadow.style.top = e.clientY + 'px';
+  });
+  
   document.getElementById("fullscreenBtn").onclick = () => {
     const el = document.getElementById("sketch-container");
     if (el.requestFullscreen) el.requestFullscreen();
