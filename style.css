@@ -75,8 +75,9 @@ h3 {
 }
 
 .hero.subheader h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-family: 'Orbitron', monospace;
+  font-weight: 400;      /* lighter weight */
   text-transform: uppercase;
   letter-spacing: 2px;
 
@@ -84,8 +85,8 @@ h3 {
   text-shadow:
     2px 2px 0 #007f6a,     /* dark shadow for depth */
     -2px -2px 0 #00ffd4,
-    4px 4px 10px rgba(0, 168, 150, 0.7),
-    -4px -4px 10px rgba(0, 168, 150, 0.7);
+    4px 4px 10px rgba(0, 168, 150, 0.5),
+    -4px -4px 10px rgba(0, 168, 150, 0.5);
   
   animation: glow 2s infinite alternate;
 }
@@ -96,22 +97,22 @@ h3 {
     text-shadow:
       2px 2px 0 #007f6a,
       -2px -2px 0 #00ffd4,
-      4px 4px 10px rgba(0, 168, 150, 0.7),
-      -4px -4px 10px rgba(0, 168, 150, 0.7);
+      4px 4px 10px rgba(0, 168, 150, 0.5),
+      -4px -4px 10px rgba(0, 168, 150, 0.5);
   }
   50% {
     text-shadow:
       3px 3px 0 #007f6a,
       -3px -3px 0 #00ffd4,
-      6px 6px 20px rgba(0, 168, 150, 0.8),
-      -6px -6px 20px rgba(0, 168, 150, 0.8);
+      6px 6px 20px rgba(0, 168, 150, 0.7),
+      -6px -6px 20px rgba(0, 168, 150, 0.7);
   }
   100% {
     text-shadow:
       2px 2px 0 #007f6a,
       -2px -2px 0 #00ffd4,
-      4px 4px 10px rgba(0, 168, 150, 0.7),
-      -4px -4px 10px rgba(0, 168, 150, 0.7);
+      4px 4px 10px rgba(0, 168, 150, 0.5),
+      -4px -4px 10px rgba(0, 168, 150, 0.5);
   }
 }
 
