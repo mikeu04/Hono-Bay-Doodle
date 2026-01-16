@@ -130,8 +130,6 @@ h3 {
 #sketch-container {
   width: 100%;
   min-height: 600;
-  height: auto;
-  display: flex;
   justify-content: center;
 }
 
