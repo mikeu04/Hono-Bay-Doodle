@@ -136,6 +136,7 @@ function setup() {
 }
 
 function draw() {
+	windowResized();
 	background(backgroundColor);
 	
 	//draw the canvas
@@ -168,15 +169,16 @@ function draw() {
 
 
 function windowResized() {
-  if (!isFullscreen) {
-    const container = document.getElementById("sketch-container");
-    trueWidth = container.offsetWidth;
-
-    const styles = window.getComputedStyle(container);
-    trueHeight = parseInt(styles.minHeight) || container.offsetHeight;
-
-    resizeCanvas(trueWidth, trueHeight);
-  }
+  	if (!isFullscreen) {
+	    const container = document.getElementById("sketch-container");
+	    trueWidth = container.offsetWidth;
+		trueHeight = container.offsetHeight;
+	    resizeCanvas(trueWidth, trueHeight);
+  	} else {
+		trueWidth = windowWidth;
+		trueHeight = windowHeight;
+		resizeCanvas(trueWidth, trueHeight);
+  	}
 }
 
 
