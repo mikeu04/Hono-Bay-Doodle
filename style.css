@@ -143,7 +143,13 @@ h3 {
   z-index: 9999;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+  opacity: 1;
+}
+
+/* Class to hide the shadow when over the video */
+#cursor-shadow.hidden {
+  opacity: 0;
 }
 
 /* This triggers when the mouse is over a card */
