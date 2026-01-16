@@ -110,11 +110,11 @@
       const centerX = rect.left + rect.width / 2;
       const centerY = rect.top + rect.height / 2;
       
-      const x = (e.clientX - centerX) / 10;
-      const y = (e.clientY - centerY) / 10;
+      const x = (e.clientX - centerX) / 8;
+      const y = (e.clientY - centerY) / 8;
 
       // Apply the shadow (using black for visibility on yellow)
-      card.style.boxShadow = `${x}px ${y}px 20px rgba(0,0,0,0.6)`;
+      card.style.boxShadow = `${x}px ${y}px 10px rgba(0,0,0,0.6)`;
     });
 
     // 2. Remove shadow when mouse leaves the card
