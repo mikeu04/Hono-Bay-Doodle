@@ -1,8 +1,119 @@
-<html>
+<!-- <html>
     <head>
     <script src="mySketch.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/p5.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/addons/p5.sound.min.js" type="text/javascript"></script>
     </head>
 <body>
 </body>
 
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hono Bay Doodle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- p5 -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/p5.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/addons/p5.sound.min.js"></script>
+</head>
+
+<body>
+  <main class="container">
+
+    <!-- Header -->
+    <section class="hero">
+      <h1>Hono Bay Doodle</h1>
+      <p class="subtitle">
+        Inspired by Waikiki, Honolulu · Interactive Web Doodle · Completed Apr 2024
+      </p>
+    </section>
+
+    <!-- Intro -->
+    <section class="intro card">
+      <h2>🌴 About the Project</h2>
+      <p>
+        <strong>Hono Bay Doodle</strong> is an interactive p5.js art piece inspired by Google Doodle and
+        the ever-changing weather of Honolulu’s rainy season. Instead of a static illustration,
+        users shape the island city through clicks, music, and unexpected visual events.
+      </p>
+      <ul>
+        <li>Dynamic weather driven by user actions</li>
+        <li>Living ocean waves and animated ship</li>
+        <li>City lights, music, randomness, and surprise</li>
+      </ul>
+    </section>
+
+    <!-- Video -->
+    <section class="video-section card">
+      <iframe
+        src="https://www.youtube.com/embed/RlagCUIcet0"
+        title="Hono Bay Doodle Demo"
+        allowfullscreen>
+      </iframe>
+    </section>
+
+    <!-- Process -->
+    <section class="process card">
+      <h2>🛠 Design & Development</h2>
+
+      <h3>Ideation</h3>
+      <p>
+        The project began with a moving cloud experiment in p5.js and evolved from a personal trip
+        to Waikiki during Honolulu’s rainy season. The contrast between sunshine, sudden rain,
+        nature, and urban life shaped the core idea.
+      </p>
+
+      <h3>Interaction Design</h3>
+      <p>
+        The doodle emphasizes interaction over realism. Smoke bubbles from a passing ship influence
+        cloud density and rainfall, while buttons and clicks allow users to reshape lighting,
+        weather, and color in real time.
+      </p>
+
+      <h3>Iteration</h3>
+      <p>
+        Features were developed modularly—buildings, ocean, ship, cloud—allowing new behaviors to
+        be added without breaking existing ones. Randomness was intentionally introduced to ensure
+        every session feels unique.
+      </p>
+    </section>
+
+    <!-- Sketch -->
+    <section class="sketch-wrapper">
+      <div class="sketch-header">
+        <button id="fullscreenBtn">View Full Screen</button>
+      </div>
+
+      <div id="sketch-container" class="card sketch-card"></div>
+    </section>
+
+  </main>
+
+  <!-- Sketch -->
+  <script src="mySketch.js"></script>
+
+  <!-- Interaction -->
+  <script>
+    // Dynamic shadow based on mouse
+    document.addEventListener("mousemove", (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 20;
+      const y = (e.clientY / window.innerHeight - 0.5) * 20;
+
+      document.querySelectorAll(".card").forEach(card => {
+        card.style.boxShadow = `${-x}px ${-y}px 30px rgba(0,0,0,0.15)`;
+      });
+    });
+
+    // Fullscreen
+    document.getElementById("fullscreenBtn").onclick = () => {
+      const el = document.getElementById("sketch-container");
+      if (el.requestFullscreen) el.requestFullscreen();
+    };
+  </script>
+</body>
 </html>
