@@ -119,9 +119,10 @@ h3 {
 /* Images in Cards */
 .card img {
   display: block;
-  width: 70%;       /* image fills the card width */
+  width: 60%;       /* image fills the card width */
+  max-width: 1400px;
+  margin: 30px auto;   /* top/bottom spacing + auto horizontal centering */
   height: auto;      /* keeps aspect ratio */
-  margin: 10px 0;    /* vertical spacing */
 }
 
 
