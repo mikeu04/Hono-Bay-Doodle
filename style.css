@@ -129,14 +129,12 @@ h3 {
 /* Sketch container */
 #sketch-container {
   width: 100%;
-  min-height: 600;
+  min-height: 600px;
   justify-content: center;
 }
 
 #sketch-container canvas {
   display: block;
-  max-width: 100%;
-  height: auto;
 }
 
 #cursor-shadow {
