@@ -40,6 +40,7 @@ body {
 /* Optional: slightly lift the card when hovering to emphasize the shadow */
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 12px 12px 20px rgba(0, 0, 0, 0.6);
 }
 
 /* Targets paragraph and list text inside the black cards */
