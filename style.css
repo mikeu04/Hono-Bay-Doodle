@@ -54,7 +54,7 @@ h3 {
 /* Video */
 .video-section iframe {
   width: 70%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   display: block;
   margin: auto;
   border-radius: 12px;
