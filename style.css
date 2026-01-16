@@ -25,7 +25,7 @@ body {
 }
 
 / * Hero Ending */
-.hero ending {
+.hero.ending {
   font-size: 4rem;
   margin: 60px auto;
 }
