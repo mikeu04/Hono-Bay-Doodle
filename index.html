@@ -138,9 +138,17 @@
             document.exitFullscreen();      // exit fullscreen
         }
       };
-        
+
+      // Fullscreen enter / exit (ESC, button, system)
       document.addEventListener('fullscreenchange', () => {
         toggleFullscreen(); // Call the function from mySketch.js
+      });
+
+      // Window resize (browser resize, phone rotation)
+      window.addEventListener("resize", () => {
+        if (!document.fullscreenElement) { // Only react when NOT in fullscreen
+          toggleFullscreen();
+        }
       });
 
     </script>
