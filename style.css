@@ -209,6 +209,8 @@ h3 {
 
 #sketch-container canvas {
   display: block;
+  border-radius: 16px;
+  overflow: hidden;   /* clean corners */
 }
 
 #cursor-shadow {
