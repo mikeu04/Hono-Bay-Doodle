@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-  background: #ffffff;
+  background: #FFDA03; /* Updated background color */
   color: #111;
   line-height: 1.7;
 }
@@ -24,13 +24,21 @@ body {
   font-size: 1rem;
 }
 
-/* Cards */
+/* Cards (Dropdown Shadow Containers) */
 .card {
-  background: #fff;
+  background: #000000; /* Set background to black */
   padding: 28px;
   margin: 48px 0;
   border-radius: 16px;
   transition: box-shadow 0.2s ease;
+  color: #ffffff; /* Sets general text color inside cards to white */
+}
+
+/* Targets paragraph and list text inside the black cards */
+.card p, 
+.card li,
+.card .subtitle {
+  color: #ffffff;
 }
 
 /* Accent colors */
