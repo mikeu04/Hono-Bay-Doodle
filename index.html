@@ -101,12 +101,29 @@
   <!-- Interaction -->
   <script>
   const shadow = document.getElementById('cursor-shadow');
+  let mouseX = 0, mouseY = 0;
+  let shadowX = 0, shadowY = 0;
+
   document.addEventListener('mousemove', (e) => {
-    // Moves the circle to the exact mouse coordinates
-    shadow.style.left = e.clientX + 'px';
-    shadow.style.top = e.clientY + 'px';
+    mouseX = e.clientX;
+    mouseY = e.clientY;
   });
-  
+
+  // This function creates a smooth "lazy" follow effect
+  function animate() {
+    // Adjust 0.1 to 0.2 for faster/slower following
+    shadowX += (mouseX - shadowX) * 0.15;
+    shadowY += (mouseY - shadowY) * 0.15;
+
+    shadow.style.left = shadowX + 'px';
+    shadow.style.top = shadowY + 'px';
+
+    requestAnimationFrame(animate);
+  }
+
+  animate(); // Start the animation loop
+
+  // Fullscreen logic
   document.getElementById("fullscreenBtn").onclick = () => {
     const el = document.getElementById("sketch-container");
     if (el.requestFullscreen) el.requestFullscreen();
