@@ -27,7 +27,8 @@ body {
 / * Hero Ending */
 .hero.ending {
   text-align: center;      /* center text horizontally */
-  margin: 60px 0;          /* spacing above and below */
+  width: 100%;         /* span across the parent conainer's width */
+  margin: 120px auto;   /* auto centers the section itself */
 }
 .hero.ending h1 {
   font-size: 4rem;
