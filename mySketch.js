@@ -214,8 +214,8 @@ function toggleFullscreen() {
   isFullscreen = !!document.fullscreenElement;
 
   if (isFullscreen) {
-    w = windowWidth;
-    h = windowHeight;
+    w = screen.width;
+    h = screen.height;
   } else {
     w = container.offsetWidth - 15;
     h = Math.max(600, w * 0.56); // NO smaller than 600px
