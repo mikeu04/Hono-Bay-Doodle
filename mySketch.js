@@ -54,7 +54,7 @@ function preload() {
 
 function setup() {
 	const container = document.getElementById("sketch-container");
-	trueWidth = container.offsetWidth - 10;
+	trueWidth = container.offsetWidth - 15;
 	trueHeight = container.offsetHeight;
 	myCanvas = createCanvas(trueWidth, trueHeight);
 	myCanvas.parent("sketch-container");	
@@ -176,10 +176,10 @@ function toggleFullscreen() {
   isFullscreen = !!document.fullscreenElement;
 
   if (isFullscreen) {
-    trueWidth = window.innerWidth;
-    trueHeight = window.innerHeight;
+    trueWidth = screen.width;
+    trueHeight = screen.height;
   } else {
-    trueWidth = container.offsetWidth - 10;
+    trueWidth = container.offsetWidth - 15;
     trueHeight = container.offsetHeight;
   }
 
