@@ -59,6 +59,39 @@ function setup() {
 	myCanvas = createCanvas(width, height);
 	myCanvas.parent("sketch-container");	
 	
+	
+	// Increment one minute every 0.5 seconds
+  	setInterval(incrementOneMinute, 100);
+	if (isNight()) {
+		prevNight = true;
+		currNight = true;
+		windowStyle.percentLightOns = 0.7;
+	} else {
+		prevNight = false;
+		currNight = false;
+		windowStyle.percentLightOns = 0.3;
+	}
+	
+	
+	cloud.x = 0;
+	
+	backgroundColor = color("#80CBF7");
+	sunFillColor = color("rgb(247, 233, 121)");
+	sunStrokeColor = color("orange");
+	moonFillColor = backgroundColor;
+	moonStrokeColor = backgroundColor;
+	
+	textSize(24);
+  	textAlign(CENTER, CENTER);
+	
+	currentButtonColor = color(255);
+	currentTextColor = color(255);
+	currentShadowColor = color(64);
+
+	setupRelativePositions();
+}
+
+function setupRelativePositions() {
 	land = {ocean: "#476FF2", beach: "#FFC000", opacity: 0.7, 
 					 	beachTop: 3.79 * height / 4, beachBottom: 3.85 * height / 4, 
 						oceanTop: 3.36 * height / 4, oceanBottom: 3.4 * height / 4,
@@ -78,29 +111,6 @@ function setup() {
 	
 	
 	cloud = {color: color("#FFFFFF"), x: -300, y: 5.5/20 * height, speed: 0.7, size: 100, numSmoke: 0};
-	
-	
-	
-	// Increment one minute every 0.5 seconds
-  setInterval(incrementOneMinute, 100);
-	if (isNight()) {
-		prevNight = true;
-		currNight = true;
-		windowStyle.percentLightOns = 0.7;
-	} else {
-		prevNight = false;
-		currNight = false;
-		windowStyle.percentLightOns = 0.3;
-	}
-	
-	
-	cloud.x = 0;
-	
-	backgroundColor = color("#80CBF7");
-	sunFillColor = color("rgb(247, 233, 121)");
-	sunStrokeColor = color("orange");
-	moonFillColor = backgroundColor;
-	moonStrokeColor = backgroundColor;
 
 	//For Buildings & their windows:
 	BD1 = {x: 0 + 2 * width/50, y: height - 20*height/50, width: 100, 
@@ -116,17 +126,10 @@ function setup() {
 				 color: buildingColors[int(random(buildingColors.length))], 
 				 windows: [], lightOns: []};
 	updateWindowsForAllBuildings();
-	
-	textSize(24);
-  	textAlign(CENTER, CENTER);
-	
-	
+
 	// this creates the Add Hours Button
 	setUpAddHoursButton();
-	currentButtonColor = color(255);
-	currentTextColor = color(255);
-	currentShadowColor = color(64);
-	
+
 	// this creates the Rainy Button
 	setUpRainButton();
 	
@@ -185,6 +188,7 @@ function toggleFullscreen() {
   }
 
   resizeCanvas(width, height);
+  setupRelativePositions();
 }
 
 
@@ -847,6 +851,7 @@ function displayCurrentTime() {
 function setUpAddHoursButton() {
   // Create the button
   button = createButton('+ 2 hours');
+  button.parent("sketch-container");
   button.position(width / 2 - 60, height / 2 - 40);
   button.size(120, 50);
   button.mousePressed(addHours);
