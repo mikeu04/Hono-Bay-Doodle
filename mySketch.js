@@ -43,6 +43,8 @@ let song;
 let songButton;
 let isSongPlaying = false;
 
+const canvasMargin = 8; //padding in px defined in style.css of the parent of sketch-board
+
 
 
 //preload the song
@@ -54,8 +56,8 @@ function preload() {
 
 function setup() {
 	const container = document.getElementById("sketch-container");
-	w = container.clientWidth;
-	h = Math.max(600, w * 0.56); // NO smaller than 600px
+	w = container.clientWidth - canvasMargin * 2;
+	h = Math.max(600, w * 0.56)  - canvasMargin * 2; // NO smaller than 600px
 	container.style.height = `${h}px`; // match sketch-container's height with canvas.height
 	myCanvas = createCanvas(w, h);
 	myCanvas.parent("sketch-container");	
@@ -217,8 +219,8 @@ function toggleFullscreen() {
     w = screen.width;
     h = screen.height;
   } else {
-    w = container.clientWidth;
-    h = Math.max(600, w * 0.56); // NO smaller than 600px
+    w = container.clientWidth  - canvasMargin * 2;
+    h = Math.max(600, w * 0.56)  - canvasMargin * 2; // NO smaller than 600px
 	container.style.height = `${h}px`;
   }
 
