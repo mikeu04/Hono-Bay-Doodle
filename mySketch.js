@@ -52,7 +52,8 @@ function preload() {
 
 
 function setup() {
-	createCanvas(windowWidth, windowHeight);	
+	const c = createCanvas(windowWidth, windowHeight);
+	c.parent("sketch-container");	
 	
 	land = {ocean: "#476FF2", beach: "#FFC000", opacity: 0.7, 
 					 	beachTop: 3.79 * windowHeight / 4, beachBottom: 3.85 * windowHeight / 4, 
