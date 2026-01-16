@@ -116,6 +116,14 @@ h3 {
   }
 }
 
+/* Images in Cards */
+.card img {
+  display: block;
+  width: 70%;       /* image fills the card width */
+  height: auto;      /* keeps aspect ratio */
+  margin: 10px 0;    /* vertical spacing */
+}
+
 
 /* Video */
 .video-section.card {
