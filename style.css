@@ -64,11 +64,16 @@ body {
 
 /* Accent colors */
 h2 {
-  color: #0a6cff;
+  color: #00a2ff;
 }
 
 h3 {
-  color: #00a896;
+  color: #53ffec;
+}
+
+/* Paragraphs */
+p {
+  font-size: 20px;
 }
 
 /* Intro list */
